@@ -1,5 +1,5 @@
 # isaac-item-parser
- Parse items.xml & stringtable.sta to extract item & trinket ids, names and gfx paths
+ Parse items.xml & stringtable.sta to extract item & trinket ids as json files, names and gfx paths
  
 # Usage
 1. `pip install tqdm`
