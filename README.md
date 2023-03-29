@@ -4,5 +4,5 @@
 # Usage
 1. `pip install tqdm`
 2. Setup input/output files in `parser.py` (optional)
-3a. If left default, place `items.xml` from `resources-dlc3` and `stringtable.sta` from `resources` in the same folder as the script
-3. Run the script
+3. If left default, place `items.xml` from `resources-dlc3` and `stringtable.sta` from `resources` in the same folder as the script
+4. Run the script
