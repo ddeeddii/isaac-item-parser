@@ -28,7 +28,7 @@ def extract_data(type: str):
   item_data = {}
 
   if type == 'item':
-    allowed_tags = ['active', 'passive', 'familar']
+    allowed_tags = ['active', 'passive', 'familiar']
     output_file = item_out
   elif type == 'trinket':
     allowed_tags = ['trinket']
