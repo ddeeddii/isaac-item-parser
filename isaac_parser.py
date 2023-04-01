@@ -37,6 +37,7 @@ def extract_data(type: str):
   print(f'Extracting {type} data...')
   for child in tqdm(i_root):
     if child.tag not in allowed_tags: continue 
+    if 'hidden' in child.attrib: continue
     item = string_tree.findtext(create_xpath_for_item(child.attrib['name'][1:]))
 
     item_data[child.attrib['id']] = {
