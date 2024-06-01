@@ -9,6 +9,7 @@ translations_in = 'stringtable.sta'
 item_out = 'items.json'
 trinket_out = 'trinkets.json'
 pocket_out = 'pocketitems.json'
+pill_out = 'pills.json'
 
 # --- END CONFIG ---
 
@@ -83,9 +84,30 @@ def extract_pocket_data(type: str):
 
   print(f'Saved {type} data into', pocket_out)  
 
+def extract_pill_data():
+  item_data = {}
+
+  print(f'Extracting pill data...')
+  for child in tqdm(p_root):
+    if child.tag != 'pilleffect': continue
+    if 'hidden' in child.attrib: continue
+    if child.attrib['name'] == 'NULL': continue
+    item = string_tree.findtext(create_xpath_for_pocket_item(child.attrib['name'][1:]))
+
+    item_data[child.attrib['id']] = {
+      'name': item,
+    }
+
+  with open(pill_out, 'w') as out:
+    json.dump(item_data, out)
+
+  print(f'Saved pill data into', pill_out)  
+
+
 # --- SELECT WHICH DATA TO EXTRACT ---
 
 extract_data('item')
 extract_data('trinket')
 extract_pocket_data('card')
 extract_pocket_data('rune')
+extract_pill_data()
